@@ -11,9 +11,8 @@ class Layview extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. Daftar Menu Aplikasi
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8),
               child: Text('Menu Aplikasi', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             ListView(
@@ -26,9 +25,8 @@ class Layview extends StatelessWidget {
               ],
             ),
 
-            // 2. Daftar Warna Horizontal
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8),
               child: Text('Warna Horizontal', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             SizedBox(
@@ -45,9 +43,8 @@ class Layview extends StatelessWidget {
               ),
             ),
 
-            // 3. Daftar Grid
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8),
               child: Text('Grid Item', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             GridView.count(
@@ -57,7 +54,15 @@ class Layview extends StatelessWidget {
               children: List.generate(6, (index) {
                 return Card(
                   margin: const EdgeInsets.all(8),
-                  child: Center(child: Text('Item $index')),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                      padding: EdgeInsets.only(bottom: 5),
+                      child: Text('Item $index'),
+                      )
+                    ],
+                  )
                 );
               }),
             ),

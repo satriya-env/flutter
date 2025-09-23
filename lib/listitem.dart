@@ -60,29 +60,40 @@ class llist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Listitem> items = List<Listitem>.generate(
-      30, (i) {
+    final List<String> imagePaths = [
+      'aset/img/chisiya.jpg',
+      'aset/img/arisu.png'
+    ];
+    final List<String> msg = [
+      'P, Mabar',
+      'Infokan Ngopi',
+      'Login -1 exp'
+    ];
+
+    final List<Listitem> items = List<Listitem>.generate(30, (i) {
       if (i % 5 == 0) {
         return Headingitem('Heading $i');
       } else if (i % 3 == 0) {
-        return Imageitem('Gambar $i', 'aset/img/chisiya.jpg');
+        final path = imagePaths[i % imagePaths.length];
+        return Imageitem('Gambar $i', path);
       } else {
-        return Messageitem('Sender $i', 'Message Body $i');
+        final mes = msg[i % msg.length];
+        return Messageitem('Sender $i', mes);
       }
     });
 
     return Scaffold(
       appBar: AppBar(title: const Text('List Item')),
       body: ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        final item = items[index];
-        return Card(
-          margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          elevation: 2,
-          child: ListTile(
-            title: item.btitle(context),
-            subtitle: item.bsub(context),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            elevation: 2,
+            child: ListTile(
+              title: item.btitle(context),
+              subtitle: item.bsub(context),
             ),
           );
         },
