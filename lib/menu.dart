@@ -13,6 +13,7 @@ class Menu extends StatelessWidget {
       body: Center(
         child: Column(
         children: [
+          SizedBox(height: 20,),
           ElevatedButton(
             child: Text('Layout Widget'),
             onPressed: (){
@@ -41,7 +42,6 @@ class Menu extends StatelessWidget {
           ),
         ],
         )
-        
       ),
     );
   }
