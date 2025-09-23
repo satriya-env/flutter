@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-// Abstract class
 abstract class Listitem {
   Widget btitle(BuildContext context);
   Widget bsub(BuildContext context);
 }
 
-// HeadingItem: teks biru dan besar
 class Headingitem implements Listitem {
   final String heading;
   Headingitem(this.heading);
@@ -23,7 +21,6 @@ class Headingitem implements Listitem {
   Widget bsub(BuildContext context) => const SizedBox.shrink();
 }
 
-// MessageItem: ada ikon di depan nama pengirim
 class Messageitem implements Listitem {
   final String sender;
   final String body;
@@ -42,7 +39,6 @@ class Messageitem implements Listitem {
   Widget bsub(BuildContext context) => Text(body);
 }
 
-// ImageItem: menampilkan gambar dan judul
 class Imageitem implements Listitem {
   final String title;
   final String imagePath;
@@ -59,13 +55,13 @@ class Imageitem implements Listitem {
       );
 }
 
-// Widget utama
 class llist extends StatelessWidget {
   const llist({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Listitem> items = List<Listitem>.generate(30, (i) {
+    final List<Listitem> items = List<Listitem>.generate(
+      30, (i) {
       if (i % 5 == 0) {
         return Headingitem('Heading $i');
       } else if (i % 3 == 0) {
