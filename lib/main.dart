@@ -1,5 +1,6 @@
-import 'package:envppb/favwid.dart';
+// import 'package:envppb/favwid.dart';
 // import 'package:envppb/menu.dart';
+import 'package:envppb/objek.dart';
 // import 'package:envppb/tes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Favwid()
+      home: Objek()
     );
   }
 }
